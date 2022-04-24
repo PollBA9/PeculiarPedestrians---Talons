@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects>
+  <object Name="Pedestrian_Hooks" Inherits="NaturalWeapon">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="ShortBlades" MaxStrengthBonus="100" />
+    <part Name="Armor" AV="0" DV="0" WornOn="Feet" />
+    <part Name="Render" DisplayName="hooks" RenderString="*" Tile="items/sw_hooks.bmp" TileColor="&amp;w" DetailColor="y" />
+    <part Name="Description" Short="Iron hooks can be fastened to residual leg limbs, providing a kind of graceless, scraping locomotion for their wearer." />
+    <tag Name="Gender" Value="plural" />
+    <tag Name="UndesireableWeapon" />
+    <part Name="PedestrianProperties" Bleeds="true" />
+  </object>
+  <object Name="Pedestrian_Blades" Inherits="Pedestrian_Hooks">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="LongBlades" MaxStrengthBonus="100" />
+    <part Name="Render" DisplayName="curled blades"/>
+    <part Name="Description" Short="Those seeking more graceful alternatives to hooks may opt instead for curled blades, yielding a bounding gait that slices through the air, and through those unfortunate enough to be in its path." />
+  </object>
+  <object Name="Pedestrian_Paws" Inherits="Pedestrian_Hooks">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="ShortBlades" MaxStrengthBonus="100" />
+    <part Name="Render" DisplayName="clawed paws"/>
+    <part Name="Description" Short="The mammalian manus moves most mercilessly, making meek monsters mulch." />
+    <part Name="PedestrianProperties" Bleeds="false" />
+  </object>
+  <object Name="Pedestrian_BappyPaws" Inherits="Pedestrian_Paws">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
+    <part Name="Render" DisplayName="bappy paws"/>
+    <part Name="PedestrianProperties" Bleeds="false" />
+  </object>
+  <object Name="Pedestrian_Hooves" Inherits="Pedestrian_Hooks">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
+    <part Name="Render" DisplayName="mighty hooves"/>
+    <part Name="Description" Short="Mighty and tough, these keratinous hooves leave clouds of dust in their wake with every step, and make for a formidable weapon." />
+    <part Name="PedestrianProperties" Bleeds="false" />
+  </object>
+  <object Name="Pedestrian_Flippers" Inherits="Pedestrian_Hooks">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
+    <part Name="Render" DisplayName="flippers"/>
+    <part Name="Description" Short="Flexible flippers cut through water and air, and are especially suited for swiftly pummeling foes." />
+    <part Name="PedestrianProperties" Bleeds="false" />
+  </object>
+</objects>
