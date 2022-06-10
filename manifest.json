@@ -1,7 +1,8 @@
 {
 	"id": "peculiar_pedestrians",
 	"title": "{{g|Peculiar Pedestrians}}",
-	"description": "Adds alternate variants to Hooks for Feet.",
+	"description": "Adds alternate variants to Hooks for Feet. Each variant has different flavortext, sprites, and weapon skills; otherwise, their stats are identical.",
 	"version": "1.0.0",
-	"author": "{{c|Noelle Lavenza}}"
+	"author": "{{c|Noelle Lavenza}}",
+	"previewImage": "preview.png"
 }
