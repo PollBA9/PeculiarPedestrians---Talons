@@ -12,29 +12,29 @@
   </object>
   <object Name="Pedestrian_Blades" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="LongBlades" MaxStrengthBonus="100" />
-    <part Name="Render" DisplayName="curled blades"/>
+    <part Name="Render" DisplayName="curled blades" />
     <part Name="Description" Short="Those seeking more graceful alternatives to hooks may opt instead for curled blades, yielding a bounding gait that slices through the air, and through those unfortunate enough to be in its path." />
   </object>
   <object Name="Pedestrian_Paws" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="ShortBlades" MaxStrengthBonus="100" />
-    <part Name="Render" DisplayName="clawed paws"/>
+    <part Name="Render" DisplayName="clawed paws" Tile="items/clawed_paws.png" />
     <part Name="Description" Short="The mammalian manus moves most mercilessly, making meek monsters mulch." />
     <part Name="PedestrianProperties" Bleeds="false" />
   </object>
   <object Name="Pedestrian_BappyPaws" Inherits="Pedestrian_Paws">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
-    <part Name="Render" DisplayName="bappy paws"/>
+    <part Name="Render" DisplayName="bappy paws" Tile="items/paws.png" />
     <part Name="PedestrianProperties" Bleeds="false" />
   </object>
   <object Name="Pedestrian_Hooves" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
-    <part Name="Render" DisplayName="mighty hooves"/>
+    <part Name="Render" DisplayName="mighty hooves" Tile="items/jak_hooves.png" TileColor="&amp;K" DetailColor="w" />
     <part Name="Description" Short="Mighty and tough, these keratinous hooves leave clouds of dust in their wake with every step, and make for a formidable weapon." />
     <part Name="PedestrianProperties" Bleeds="false" />
   </object>
   <object Name="Pedestrian_Flippers" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
-    <part Name="Render" DisplayName="flippers"/>
+    <part Name="Render" DisplayName="flippers" Tile="items/flippers.png" />
     <part Name="Description" Short="Flexible flippers cut through water and air, and are especially suited for swiftly pummeling foes." />
     <part Name="PedestrianProperties" Bleeds="false" />
   </object>
