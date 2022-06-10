@@ -32,6 +32,10 @@
     <part Name="Description" Short="Mighty and tough, these keratinous hooves leave clouds of dust in their wake with every step, and make for a formidable weapon." />
     <part Name="PedestrianProperties" Bleeds="false" />
   </object>
+  <object Name="Pedestrian_ClovenHooves" Inherits="Pedestrian_Hooves">
+    <part Name="Render" DisplayName="cloven hooves" Tile="items/jak_clovenhooves.png" />
+    <part Name="Description" Short="These strong hooves, though split in twain, are no less capable than their unified counterparts." />
+  </object>
   <object Name="Pedestrian_Flippers" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
     <part Name="Render" DisplayName="flippers" Tile="items/flippers.png" />

@@ -41,7 +41,8 @@ namespace XRL.World.Parts.Mutation
 					_variants = new Dictionary<string, HookType>();
 					_variants.Add("Hooks", new HookType());
 					_variants.Add("Blades", new HookType("Blades for Feet", "sharp blades", "Pedestrian_Blades", "LongBlades"));
-					_variants.Add("Hooves", new HookType("Hooves", "mighty hooves", "Pedestrian_Hooves", "Cudgel", true));
+					_variants.Add("Mighty Hooves", new HookType("Mighty Hooves", "mighty hooves", "Pedestrian_Hooves", "Cudgel", true));
+					_variants.Add("Cloven Hooves", new HookType("Cloven Hooves", "cloven hooves", "Pedestrian_ClovenHooves", "Cudgel", true));
 					_variants.Add("Clawed Paws", new HookType("Clawed Paws", "clawed paws", "Pedestrian_Paws", "ShortBlades", true));
 					_variants.Add("Bappy Paws", new HookType("Bappy Paws", "bappy paws", "Pedestrian_BappyPaws", "Cudgel", true));
 					_variants.Add("Flippers", new HookType("Flippers", "flippers", "Pedestrian_Flippers", "Cudgel", true));
