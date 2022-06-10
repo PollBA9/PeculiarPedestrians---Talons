@@ -8,6 +8,7 @@
     <tag Name="Gender" Value="plural" />
     <tag Name="UndesireableWeapon" />
     <part Name="PedestrianProperties" Bleeds="true" />
+    <tag Name="DefaultBehaviorHasColorInMenu" />
   </object>
   <object Name="Pedestrian_Blades" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="LongBlades" MaxStrengthBonus="100" />
