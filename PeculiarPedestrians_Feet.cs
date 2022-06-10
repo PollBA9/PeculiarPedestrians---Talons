@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using XRL.Wish;
+using XRL.World;
+using XRL.World.Parts;
 
 namespace XRL.World.Parts.Mutation
 {
@@ -28,7 +31,9 @@ namespace XRL.World.Parts.Mutation
 		}
 
 		[NonSerialized]
-		public Dictionary<BodyPart, GameObject> FeetObjects;
+		public List<BodyPart> RegisteredParts;
+		[NonSerialized]
+		public List<int> RegisteredPartIDs;
 
 		[NonSerialized]
 		private Dictionary<string, HookType> _variants;
@@ -53,35 +58,26 @@ namespace XRL.World.Parts.Mutation
 
 		public override void SaveData(SerializationWriter Writer)
 		{
-			Writer.WriteGameObjectList(FeetObjects.Values.ToList());
-			Dictionary<int, int> feetObjectIDs = new Dictionary<int, int>();
-			foreach (KeyValuePair<BodyPart, GameObject> kvp in FeetObjects)
-			{
-				feetObjectIDs.Add(FeetObjects.Values.ToList().IndexOf(kvp.Value), kvp.Key.ID);
-			}
-			Writer.Write(feetObjectIDs); // primitive typed dictionary is fine
+			Writer.Write<int>(RegisteredParts.Select(x => x.ID).ToList());
 			base.SaveData(Writer);
 		}
 
 		public override void LoadData(SerializationReader Reader)
 		{
-			List<GameObject> FeetObjectList = new List<GameObject>();
-			Reader.ReadGameObjectList(FeetObjectList);
-			Dictionary<int, int> feetObjectIDs = Reader.ReadDictionary<int, int>();
-			FeetObjects = new Dictionary<BodyPart, GameObject>();
-			Dictionary<int, BodyPart> partIDs = new Dictionary<int, BodyPart>();
-			foreach (BodyPart part in ParentObject.Body.LoopParts())
-			{
-				if(feetObjectIDs.Values.ToList().IndexOf(part.ID) != -1)
-				{
-					partIDs.Add(part.ID, part);
-				}
-			}
-			foreach (GameObject foot in FeetObjectList)
-			{
-				FeetObjects.Add(partIDs[feetObjectIDs[FeetObjectList.IndexOf(foot)]], foot);
-			}
+			RegisteredPartIDs = Reader.ReadList<int>();
 			base.LoadData(Reader);
+		}
+
+		public override void FinalizeLoad()
+		{
+			/*
+			foreach (int id in RegisteredPartIDs)
+			{
+				UnityEngine.Debug.Log("BodyPart id: " + id + ", name: " + ParentObject?.Body?._Body?.GetPartByID(id)?.GetOrdinalName());
+			}
+			*/
+			RegisteredParts = RegisteredPartIDs.Select(x => ParentObject.Body._Body.GetPartByID(x)).ToList();
+			base.FinalizeLoad();
 		}
 
 		public PeculiarPedestrians_Feet()
@@ -127,13 +123,14 @@ namespace XRL.World.Parts.Mutation
 
 		public override void SetVariant(int n)
 		{
-			DisplayName = Variants.Values.ToList()[n].Name + " ({{r|D}})";
+			HookType selectedType = Variants.Values.ToList()[n];
+			DisplayName = selectedType.Name + " ({{r|D}})";
 			base.SetVariant(n);
 		}
 
 		public override string GetDescription()
 		{
-			return $"You have {GetDescriptor()} for feet.\n\nYou cannot wear shoes.";
+			return $"You have {GetDescriptor()} for feet.\n\nBladed or hooked feet cannot wear shoes; other variants can only wear modified shoes.";
 		}
 
 		public override string GetLevelText(int Level)
@@ -143,15 +140,15 @@ namespace XRL.World.Parts.Mutation
 
 		public override void OnRegenerateDefaultEquipment(Body Body)
 		{
-			if(FeetObjects == null)
+			if(RegisteredParts == null)
 			{
-				FeetObjects = new Dictionary<BodyPart, GameObject>();
+				RegisteredParts = new List<BodyPart>();
 				foreach (BodyPart limb in Body.LoopPart("Feet"))
 				{
-					UnityEngine.Debug.Log("Initialising FeetObjects for " + limb.Name);
+					//UnityEngine.Debug.Log("Initialising FeetObjects for " + limb.Name);
 					if (limb.Type == "Feet")
 					{
-						FeetObjects[limb] = GameObjectFactory.Factory.CreateObject(GetBlueprint());
+						RegisteredParts.Add(limb);
 					}
 					if (!IsEveryLimb())
 					{
@@ -159,36 +156,57 @@ namespace XRL.World.Parts.Mutation
 					}
 				}
 			}
-			UnityEngine.Debug.Log("Regenerating FeetObjects for " + ParentObject.DisplayName);
-			foreach (var pair in FeetObjects) 
-			{ 
-				UnityEngine.Debug.Log($"{pair.Key.Name}: {pair.Value?.DisplayName ?? "null"}");
-			}
-			Dictionary<BodyPart, GameObject> newFeetObjects = new Dictionary<BodyPart, GameObject>(FeetObjects);
-			foreach (BodyPart bodyPart in FeetObjects.Keys)
+			if (RegisteredParts.Count() < (IsEveryLimb() ? Body.GetPartCount("Feet") : 1))
 			{
-				UnityEngine.Debug.Log("Generating " + GetDescriptor() + " for " + bodyPart.Name);
-				var foot = FeetObjects[bodyPart];
+				var targetCount = IsEveryLimb() ? Body.GetPartCount("Feet") : 1;
+				//UnityEngine.Debug.Log("Regenerating missing feet objects for " + ParentObject.DisplayName);
+				foreach (BodyPart limb in Body.LoopPart("Feet"))
+				{
+					if (RegisteredParts.Count() >= targetCount)
+					{
+						break;
+					}
+					if (limb.Type == "Feet" && !RegisteredParts.Contains(limb))
+					{
+						RegisteredParts.Add(limb);
+					}
+				}
+			}
+			//UnityEngine.Debug.Log("Regenerating ID list for " + ParentObject.DisplayName);
+			RegisteredPartIDs = RegisteredParts.Select(x => x.ID).ToList();
+			//UnityEngine.Debug.Log("Checking feet objects for " + ParentObject.DisplayName);
+			foreach (BodyPart bodyPart in RegisteredParts)
+			{
+				//UnityEngine.Debug.Log("Checking " + GetDescriptor() + " on " + bodyPart.GetOrdinalName());
+				var foot = bodyPart.DefaultBehavior;
 				if (!GameObject.validate(ref foot))
 				{
+					//UnityEngine.Debug.Log("Regenerating " + GetDescriptor() + " for " + bodyPart.GetOrdinalName());
 					foot = GameObjectFactory.Factory.CreateObject(GetBlueprint());
 				}
-				if (bodyPart != null && bodyPart.Equipped != foot && bodyPart.ForceUnequip(Silent: true))
+				else // Nothing needs to be done here.
 				{
-					MeleeWeapon part = foot.GetPart<MeleeWeapon>();
-					ParentObject.ForceEquipObject(foot, bodyPart, Silent: true, 0);
+					//UnityEngine.Debug.Log(bodyPart.GetOrdinalName() + " already has " + GetDescriptor());
+					continue;
 				}
-				newFeetObjects[bodyPart] = foot;
+				if (bodyPart != null)
+				{
+					if (bodyPart.Equipped != null && !bodyPart.Equipped.HasTagOrStringProperty("Pedestrian_CanEquip"))
+					{
+						//UnityEngine.Debug.Log("Unequipping " + bodyPart.Equipped.DisplayName + " on " + bodyPart.GetOrdinalName());
+						bodyPart.ForceUnequip(Silent: true);
+					}
+					bodyPart.DefaultBehavior = foot;
+				}
 			}
-			FeetObjects = newFeetObjects;
 			base.OnRegenerateDefaultEquipment(Body);
 		}
 
 		public override bool Unmutate(GameObject GO)
 		{
-			foreach (GameObject foot in FeetObjects.Values)
+			foreach (BodyPart bodyPart in RegisteredParts)
 			{
-				CleanUpMutationEquipment(GO, foot);
+				CleanUpMutationEquipment(GO, bodyPart.DefaultBehavior);
 			}
 			return base.Unmutate(GO);
 		}
