@@ -1,0 +1,8 @@
+{
+  "WorkshopId": 2819355053,
+  "Title": "Peculiar Pedestrians",
+  "Description": "Adds alternate variants to Hooks for Feet. Each variant has different flavortext, sprites, and weapon skills; otherwise, their stats are identical.\n\nCloven Hooves, Mighty Hooves, Bappy Paws, and Flippers use Cudgel. Hooks for Feet and Clawed Paws use Short Blades. Blades for Feet uses Long Blades. All of these deal one damage by default and scale with Strength.\n\r\nThe prosthetic options (hooks and blades) will only affect one pair of legs; the non-prosthetic options (hooves, paws, and flippers) will affect all four.\n\nThis mod also includes the Ergonomic item mod, which allows for shoes to be equipped with these feet, and gives cloven hooves to all hindren.\n\n\nThanks to Jaki and Flooremoji for help with sprites!\n\nPlease report any issues in the #modding channel in the Caves of Qud discord (ping Noelle Lavenza), or on the Github issue tracker. Suggestions for additional features or configuration options are welcome as well!\r\n\r\nGithub repository: https://github.com/noelle-lavenza/PeculiarPedestrians\n\r\nLike my work? Buy me a Ko-fi at https://ko-fi.com/noellelavenza",
+  "Tags": "Mutation,Stable,Beta,Sprite",
+  "Visibility": "2",
+  "ImagePath": "preview.png"
+}

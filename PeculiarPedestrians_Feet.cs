@@ -210,5 +210,20 @@ namespace XRL.World.Parts.Mutation
 			}
 			return base.Unmutate(GO);
 		}
+
+		public override bool WantEvent(int ID, int cascade)
+		{
+			if (ID == GetExtraPhysicalFeaturesEvent.ID)
+			{
+				return true;
+			}
+			return base.WantEvent(ID, cascade);
+		}
+
+		public override bool HandleEvent(GetExtraPhysicalFeaturesEvent E)
+		{
+			E.Features.Add(GetDescriptor());
+			return base.HandleEvent(E);
+		}
 	}
 }

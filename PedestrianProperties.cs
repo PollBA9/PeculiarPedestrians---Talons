@@ -60,14 +60,8 @@ namespace XRL.World.Parts
 		{
 			if (E.ID == "CanEquipOverDefaultBehavior")
 			{
-				UnityEngine.Debug.Log("CanEquipOverDefaultBehavior");
-				/*
 				GameObject equippingObject = E.GetGameObjectParameter("Object");
-				GameObject who = E.GetGameObjectParameter("Subject");
-				BodyPart part = E.GetBodyPartParameter("Part");
-				// TODO: Check for ergonomic mod
-				*/
-				return false;
+				return equippingObject.HasTagOrStringProperty("Pedestrian_CanEquip");
 			}
 			else if (E.ID == "WeaponDealDamage" && Bleeds)
 			{

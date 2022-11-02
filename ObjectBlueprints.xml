@@ -9,6 +9,7 @@
     <tag Name="UndesireableWeapon" />
     <part Name="PedestrianProperties" Bleeds="true" />
     <tag Name="DefaultBehaviorHasColorInMenu" />
+    <tag Name="ShowAsPhysicalFeature" Value="*delete" />
   </object>
   <object Name="Pedestrian_Blades" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="LongBlades" MaxStrengthBonus="100" />
@@ -41,5 +42,72 @@
     <part Name="Render" DisplayName="flippers" Tile="items/flippers.png" />
     <part Name="Description" Short="Flexible flippers cut through water and air, and are especially suited for swiftly pummeling foes." />
     <part Name="PedestrianProperties" Bleeds="false" />
+  </object>
+
+  <!-- Ergonomic Shoes -->
+  <object Name="ErgonomicMoccasins" Inherits="Leather Moccasins">
+    <part Name="AddMod" Mods="ModErgonomic" />
+  </object>
+  <object Name="ErgonomicSandals" Inherits="Sandals">
+    <part Name="AddMod" Mods="ModErgonomic" />
+  </object>
+  <object Name="ErgonomicCroccasins" Inherits="Croccasins">
+    <part Name="AddMod" Mods="ModErgonomic" />
+  </object>
+  <object Name="Ergonomic Steel Boots" Inherits="Steel Boots">
+    <part Name="AddMod" Mods="ModErgonomic" />
+  </object>
+  <object Name="Ergonomic Leather Boots" Inherits="Leather Boots">
+    <part Name="AddMod" Mods="ModErgonomic" />
+  </object>
+
+  <!-- Hindren -->
+  <object Name="BaseHindren" Load="Merge">
+    <mutation Name="PeculiarPedestrians_Feet" Variant="Cloven Hooves" />
+  </object>
+
+  <object Name="Eskhind" Load="Merge">
+    <inventoryobject Blueprint="Croccasins" Number="0" />
+    <inventoryobject Blueprint="ErgonomicCroccasins" Number="2" />
+  </object>
+
+  <object Name="Isahind" Load="Merge">
+    <inventoryobject Blueprint="Sandals" Number="0" />
+    <inventoryobject Blueprint="ErgonomicSandals" Number="2" />
+  </object>
+
+  <object Name="Neelahind" Load="Merge">
+    <inventoryobject Blueprint="Steel Boots" Number="0" />
+    <inventoryobject Blueprint="Ergonomic Steel Boots" Number="2" />
+  </object>
+
+  <object Name="Keh" Load="Merge">
+    <inventoryobject Blueprint="Sandals" Number="0" />
+    <inventoryobject Blueprint="ErgonomicSandals" Number="2" />
+  </object>
+
+  <object Name="Kesehind" Load="Merge">
+    <inventoryobject Blueprint="Leather Boots" Number="0" />
+    <inventoryobject Blueprint="Ergonomic Leather Boots" Number="2" />
+  </object>
+
+  <object Name="Angohind" Load="Merge">
+    <inventoryobject Blueprint="Sandals" Number="0" />
+    <inventoryobject Blueprint="ErgonomicSandals" Number="2" />
+  </object>
+
+  <object Name="HindrenVillager" Load="Merge">
+    <inventoryobject Blueprint="Sandals" Number="0" />
+    <inventoryobject Blueprint="ErgonomicSandals" Number="2" />
+  </object>
+
+  <object Name="FaundrenVillager" Load="Merge">
+    <inventoryobject Blueprint="Sandals" Number="0" />
+    <inventoryobject Blueprint="ErgonomicSandals" Number="2" />
+  </object>
+
+  <object Name="HindrenScout" Load="Merge">
+    <inventoryobject Blueprint="Leather Boots" Number="0" />
+    <inventoryobject Blueprint="Ergonomic Leather Boots" Number="2" />
   </object>
 </objects>

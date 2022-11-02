@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mods>
+  <mod Part="ModErgonomic" Tables="BootMods" Rarity="C" TinkerTier="1" TinkerDisplayName="ergonomically designed" Value="1.1" />
+</mods>
