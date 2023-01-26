@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using XRL.Wish;
-using XRL.World;
-using XRL.World.Parts;
+using XRL.World.Anatomy;
 
 namespace XRL.World.Parts.Mutation
 {

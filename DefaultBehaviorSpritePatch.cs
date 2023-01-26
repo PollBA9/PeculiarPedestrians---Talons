@@ -26,7 +26,7 @@ namespace PeculiarPedestrians.Harmony
 			//    ldfld class XRL.World.GameObject XRL.World.BodyPart::DefaultBehavior
 			//    callvirt instance class XRL.World.RenderEvent XRL.World.GameObject::RenderForUI()
 			// To find this, we use Select() to transform each to a bool, corresponding to the filter condition; then, we get the first true value.
-			var insertidx = code.Select((x, idx) => (x.LoadsField(AccessTools.Field(typeof(XRL.World.BodyPart), nameof(XRL.World.BodyPart.DefaultBehavior))) && idx < code.Count() && code[idx+1].Calls(AccessTools.Method(typeof(XRL.World.GameObject), "RenderForUI")))).ToList().IndexOf(true);
+			var insertidx = code.Select((x, idx) => (x.LoadsField(AccessTools.Field(typeof(XRL.World.Anatomy.BodyPart), nameof(XRL.World.Anatomy.BodyPart.DefaultBehavior))) && idx < code.Count() && code[idx+1].Calls(AccessTools.Method(typeof(XRL.World.GameObject), "RenderForUI")))).ToList().IndexOf(true);
 			if (insertidx != -1)
 			{
 				// Create a new local bool variable
