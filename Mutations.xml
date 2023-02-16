@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <mutations>
   <category Name="PhysicalDefects">
-    <mutation Name="Hooks for Feet" Cost="-4" MaxSelected="1" Class="PeculiarPedestrians_Feet" Exclusions="" BearerDescription="those with peculiar feet" Code="pe" Tile="Mutations/hooks_for_feet.bmp" />
+    <mutation Name="Hooks for Feet" Cost="-4" MaxSelected="1" Class="PeculiarPedestrians_Feet" Exclusions="" BearerDescription="those with peculiar feet" Tile="Mutations/hooks_for_feet.bmp" />
   </category>
 </mutations>
