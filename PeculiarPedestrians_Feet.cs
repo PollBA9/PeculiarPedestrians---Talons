@@ -58,13 +58,13 @@ namespace XRL.World.Parts.Mutation
 
 		public override void SaveData(SerializationWriter Writer)
 		{
-			Writer.Write<int>(RegisteredParts.Select(x => x.ID).ToList());
+			Writer.Write<int>(RegisteredParts?.Select(x => x.ID).ToList());
 			base.SaveData(Writer);
 		}
 
 		public override void LoadData(SerializationReader Reader)
 		{
-			RegisteredPartIDs = Reader.ReadList<int>();
+			RegisteredPartIDs = Reader.ReadList<int>() ?? new List<int>();
 			base.LoadData(Reader);
 		}
 
