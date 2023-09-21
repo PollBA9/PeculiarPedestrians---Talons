@@ -8,13 +8,11 @@ using XRL.World.Parts.Mutation;
 public static class Wishes
 {
 	[WishCommand(Command = "noelle:removepaws")]
-	public static void removePaws()
+	public static void RemovePaws()
 	{
-		Mutations mutations = XRL.The.Player.GetPart("Mutations") as Mutations;
-		if (mutations != null)
+		if (XRL.The.Player.GetPart("Mutations") is Mutations mutations)
 		{
-			PeculiarPedestrians_Feet feet = mutations.GetMutation("Hooks for Feet") as PeculiarPedestrians_Feet;
-			if (feet != null)
+			if (mutations.GetMutation("Hooks for Feet") is PeculiarPedestrians_Feet feet)
 			{
 				feet.Unmutate(XRL.The.Player);
 			}
@@ -27,13 +25,11 @@ public static class Wishes
 		}
 	}
 	[WishCommand(Command = "noelle:regenpaws")]
-	public static void regenPaws()
+	public static void RegenPaws()
 	{
-		Mutations mutations = XRL.The.Player.GetPart("Mutations") as Mutations;
-		if (mutations != null)
+		if (XRL.The.Player.GetPart("Mutations") is Mutations mutations)
 		{
-			PeculiarPedestrians_Feet feet = mutations.GetMutation("Hooks for Feet") as PeculiarPedestrians_Feet;
-			if (feet != null)
+			if (mutations.GetMutation("Hooks for Feet") is PeculiarPedestrians_Feet feet)
 			{
 				feet.Mutate(XRL.The.Player, feet.Level);
 			}

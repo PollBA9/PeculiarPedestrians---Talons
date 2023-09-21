@@ -2,7 +2,7 @@
 	"id": "peculiar_pedestrians",
 	"title": "{{g|Peculiar Pedestrians}}",
 	"description": "Adds alternate variants to Hooks for Feet. Each variant has different flavortext, sprites, and weapon skills; otherwise, their stats are identical. Also adds cloven hooves to hindren and an Ergonomic modification for shoes to let them be equipped with these feet variants.",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"author": "{{c|Noelle Lavenza}}",
 	"previewImage": "preview.png"
 }

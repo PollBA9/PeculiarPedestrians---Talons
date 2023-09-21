@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net48</TargetFramework>
-		<LangVersion>7.3</LangVersion>
+		<TargetFramework>net46</TargetFramework>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 		<QudLibPath>C:/Program Files (x86)/Steam/steamapps/common/Caves of Qud/CoQ_Data/Managed</QudLibPath>
@@ -28,56 +27,6 @@
 		<Reference Include="$(QudLibPath)/RoslynCSharp.Compiler.dll" />
 		<Reference Include="$(QudLibPath)/RoslynCSharp.dll" />
 		<Reference Include="$(QudLibPath)/RoslynCSharp.Examples.dll" />
-		<Reference Include="$(QudLibPath)/System.Collections.Concurrent.dll" />
-		<Reference Include="$(QudLibPath)/System.Collections.dll" />
-		<Reference Include="$(QudLibPath)/System.Collections.Immutable.dll" />
-		<Reference Include="$(QudLibPath)/System.ComponentModel.Composition.dll" />
-		<Reference Include="$(QudLibPath)/System.Configuration.dll" />
-		<Reference Include="$(QudLibPath)/System.Core.dll" />
-		<Reference Include="$(QudLibPath)/System.Data.dll" />
-		<Reference Include="$(QudLibPath)/System.Diagnostics.Debug.dll" />
-		<Reference Include="$(QudLibPath)/System.Diagnostics.Tools.dll" />
-		<Reference Include="$(QudLibPath)/System.dll" />
-		<Reference Include="$(QudLibPath)/System.Drawing.dll" />
-		<Reference Include="$(QudLibPath)/System.EnterpriseServices.dll" />
-		<Reference Include="$(QudLibPath)/System.Globalization.dll" />
-		<Reference Include="$(QudLibPath)/System.IO.Compression.dll" />
-		<Reference Include="$(QudLibPath)/System.IO.Compression.FileSystem.dll" />
-		<Reference Include="$(QudLibPath)/System.IO.dll" />
-		<Reference Include="$(QudLibPath)/System.IO.FileSystem.dll" />
-		<Reference Include="$(QudLibPath)/System.IO.FileSystem.Primitives.dll" />
-		<Reference Include="$(QudLibPath)/System.Linq.dll" />
-		<Reference Include="$(QudLibPath)/System.Linq.Expressions.dll" />
-		<Reference Include="$(QudLibPath)/System.Net.Http.dll" />
-		<Reference Include="$(QudLibPath)/System.Numerics.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.Extensions.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.Metadata.dll" />
-		<Reference Include="$(QudLibPath)/System.Reflection.Primitives.dll" />
-		<Reference Include="$(QudLibPath)/System.Resources.ResourceManager.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Extensions.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.InteropServices.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Numerics.dll" />
-		<Reference Include="$(QudLibPath)/System.Runtime.Serialization.dll" />
-		<Reference Include="$(QudLibPath)/System.Security.Cryptography.Algorithms.dll" />
-		<Reference Include="$(QudLibPath)/System.Security.Cryptography.Primitives.dll" />
-		<Reference Include="$(QudLibPath)/System.Security.dll" />
-		<Reference Include="$(QudLibPath)/System.ServiceModel.Internals.dll" />
-		<Reference Include="$(QudLibPath)/System.Text.Encoding.CodePages.dll" />
-		<Reference Include="$(QudLibPath)/System.Text.Encoding.dll" />
-		<Reference Include="$(QudLibPath)/System.Text.Encoding.Extensions.dll" />
-		<Reference Include="$(QudLibPath)/System.Threading.dll" />
-		<Reference Include="$(QudLibPath)/System.Threading.Tasks.dll" />
-		<Reference Include="$(QudLibPath)/System.Threading.Tasks.Extensions.dll" />
-		<Reference Include="$(QudLibPath)/System.Threading.Tasks.Parallel.dll" />
-		<Reference Include="$(QudLibPath)/System.Transactions.dll" />
-		<Reference Include="$(QudLibPath)/System.ValueTuple.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.Linq.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.ReaderWriter.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.XDocument.dll" />
-		<Reference Include="$(QudLibPath)/System.Xml.XPath.XDocument.dll" />
 		<Reference Include="$(QudLibPath)/Trivial.CodeSecurity.dll" />
 		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.dll" />
 		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.Mdb.dll" />
