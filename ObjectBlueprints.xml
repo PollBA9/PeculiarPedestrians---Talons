@@ -23,7 +23,6 @@
 
     <tag Name="VariantName" Value="Blades for Feet" />
     <tag Name="Pedestrian_Descriptor" Value="sharp blades" />
-    <tag Name="Pedestrian_Skill" Value="LongBlades" />
   </object>
   <object Name="Pedestrian_Paws" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="ShortBlades" MaxStrengthBonus="100" />
