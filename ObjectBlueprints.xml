@@ -14,7 +14,6 @@
     <tag Name="MutationEquipment" Value="PeculiarPedestrians_Feet" />
     <tag Name="VariantName" Value="Hooks for Feet" />
     <tag Name="Pedestrian_Descriptor" Value="sharp hooks" />
-    <tag Name="Pedestrian_Skill" Value="ShortBlades" />
     <tag Name="Pedestrian_bEveryLimb" Value="false" />
   </object>
   <object Name="Pedestrian_Blades" Inherits="Pedestrian_Hooks">
@@ -34,7 +33,6 @@
 
     <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="clawed paws" />
-    <tag Name="Pedestrian_Skill" Value="ShortBlades" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_BappyPaws" Inherits="Pedestrian_Paws">
@@ -44,7 +42,6 @@
 
     <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="bappy paws" />
-    <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_Hooves" Inherits="Pedestrian_Hooks">
@@ -55,7 +52,6 @@
 
     <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="mighty hooves" />
-    <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_ClovenHooves" Inherits="Pedestrian_Hooves">
@@ -64,7 +60,6 @@
 
     <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="cloven hooves" />
-    <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_Flippers" Inherits="Pedestrian_Hooks">
@@ -75,7 +70,6 @@
 
     <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="flippers" />
-    <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
 
