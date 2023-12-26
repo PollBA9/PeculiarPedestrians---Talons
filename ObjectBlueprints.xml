@@ -10,38 +10,73 @@
     <part Name="PedestrianProperties" Bleeds="true" />
     <tag Name="DefaultBehaviorHasColorInMenu" />
     <tag Name="ShowAsPhysicalFeature" Value="*delete" />
+
+    <tag Name="MutationEquipment" Value="PeculiarPedestrians_Feet" />
+    <tag Name="VariantName" Value="Hooks for Feet" />
+    <tag Name="Pedestrian_Descriptor" Value="sharp hooks" />
+    <tag Name="Pedestrian_Skill" Value="ShortBlades" />
+    <tag Name="Pedestrian_bEveryLimb" Value="false" />
   </object>
   <object Name="Pedestrian_Blades" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="LongBlades" MaxStrengthBonus="100" />
     <part Name="Render" DisplayName="curled blades" />
     <part Name="Description" Short="Those seeking more graceful alternatives to hooks may opt instead for curled blades, yielding a bounding gait that slices through the air, and through those unfortunate enough to be in its path." />
+
+    <tag Name="VariantName" Value="Blades for Feet" />
+    <tag Name="Pedestrian_Descriptor" Value="sharp blades" />
+    <tag Name="Pedestrian_Skill" Value="LongBlades" />
   </object>
   <object Name="Pedestrian_Paws" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="ShortBlades" MaxStrengthBonus="100" />
     <part Name="Render" DisplayName="clawed paws" Tile="items/clawed_paws.png" />
     <part Name="Description" Short="The mammalian manus moves most mercilessly, making meek monsters mulch." />
     <part Name="PedestrianProperties" Bleeds="false" />
+
+    <tag Name="VariantName" Value="Clawed Paws" />
+    <tag Name="Pedestrian_Descriptor" Value="clawed paws" />
+    <tag Name="Pedestrian_Skill" Value="ShortBlades" />
+    <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_BappyPaws" Inherits="Pedestrian_Paws">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
     <part Name="Render" DisplayName="bappy paws" Tile="items/paws.png" />
     <part Name="PedestrianProperties" Bleeds="false" />
+
+    <tag Name="VariantName" Value="Bappy Paws" />
+    <tag Name="Pedestrian_Descriptor" Value="bappy paws" />
+    <tag Name="Pedestrian_Skill" Value="Cudgel" />
+    <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_Hooves" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
     <part Name="Render" DisplayName="mighty hooves" Tile="items/jak_hooves.png" TileColor="&amp;K" DetailColor="w" />
     <part Name="Description" Short="Mighty and tough, these keratinous hooves leave clouds of dust in their wake with every step, and make for a formidable weapon." />
     <part Name="PedestrianProperties" Bleeds="false" />
+
+    <tag Name="VariantName" Value="Mighty Hooves" />
+    <tag Name="Pedestrian_Descriptor" Value="mighty hooves" />
+    <tag Name="Pedestrian_Skill" Value="Cudgel" />
+    <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_ClovenHooves" Inherits="Pedestrian_Hooves">
     <part Name="Render" DisplayName="cloven hooves" Tile="items/jak_clovenhooves.png" />
     <part Name="Description" Short="These strong hooves, though split in twain, are no less capable than their unified counterparts." />
+
+    <tag Name="VariantName" Value="Cloven Hooves" />
+    <tag Name="Pedestrian_Descriptor" Value="cloven hooves" />
+    <tag Name="Pedestrian_Skill" Value="Cudgel" />
+    <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
   <object Name="Pedestrian_Flippers" Inherits="Pedestrian_Hooks">
     <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="Cudgel" MaxStrengthBonus="100" />
     <part Name="Render" DisplayName="flippers" Tile="items/flippers.png" />
     <part Name="Description" Short="Flexible flippers cut through water and air, and are especially suited for swiftly pummeling foes." />
     <part Name="PedestrianProperties" Bleeds="false" />
+
+    <tag Name="VariantName" Value="Flippers" />
+    <tag Name="Pedestrian_Descriptor" Value="flippers" />
+    <tag Name="Pedestrian_Skill" Value="Cudgel" />
+    <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
 
   <!-- Ergonomic Shoes -->
@@ -63,7 +98,7 @@
 
   <!-- Hindren -->
   <object Name="BaseHindren" Load="Merge">
-    <mutation Name="PeculiarPedestrians_Feet" Variant="Cloven Hooves" />
+    <mutation Name="PeculiarPedestrians_Feet" Variant="Pedestrian_ClovenHooves" />
   </object>
 
   <object Name="Eskhind" Load="Merge">
