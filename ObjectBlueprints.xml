@@ -32,7 +32,7 @@
     <part Name="Description" Short="The mammalian manus moves most mercilessly, making meek monsters mulch." />
     <part Name="PedestrianProperties" Bleeds="false" />
 
-    <tag Name="VariantName" Value="Clawed Paws" />
+    <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="clawed paws" />
     <tag Name="Pedestrian_Skill" Value="ShortBlades" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
@@ -42,7 +42,7 @@
     <part Name="Render" DisplayName="bappy paws" Tile="items/paws.png" />
     <part Name="PedestrianProperties" Bleeds="false" />
 
-    <tag Name="VariantName" Value="Bappy Paws" />
+    <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="bappy paws" />
     <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
@@ -53,7 +53,7 @@
     <part Name="Description" Short="Mighty and tough, these keratinous hooves leave clouds of dust in their wake with every step, and make for a formidable weapon." />
     <part Name="PedestrianProperties" Bleeds="false" />
 
-    <tag Name="VariantName" Value="Mighty Hooves" />
+    <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="mighty hooves" />
     <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
@@ -62,7 +62,7 @@
     <part Name="Render" DisplayName="cloven hooves" Tile="items/jak_clovenhooves.png" />
     <part Name="Description" Short="These strong hooves, though split in twain, are no less capable than their unified counterparts." />
 
-    <tag Name="VariantName" Value="Cloven Hooves" />
+    <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="cloven hooves" />
     <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
@@ -73,7 +73,7 @@
     <part Name="Description" Short="Flexible flippers cut through water and air, and are especially suited for swiftly pummeling foes." />
     <part Name="PedestrianProperties" Bleeds="false" />
 
-    <tag Name="VariantName" Value="Flippers" />
+    <tag Name="VariantName" Value="*delete" />
     <tag Name="Pedestrian_Descriptor" Value="flippers" />
     <tag Name="Pedestrian_Skill" Value="Cudgel" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
