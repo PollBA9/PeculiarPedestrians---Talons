@@ -8,51 +8,21 @@ namespace XRL.World.Parts.Mutation
 	[Serializable]
 	public class PeculiarPedestrians_Feet : BaseDefaultEquipmentMutation
 	{
-		class HookType
-		{
-			public string Name = "Hooks for Feet";
-			public string Descriptor = "sharp hooks";
-			public string Blueprint = "Pedestrian_Hooks";
-			public string Skill = "ShortBlades";
-			public bool bEveryLimb = false;
-			public HookType()
-			{
-			}
-			public HookType(string name, string descriptor, string blueprint, string skill, bool everyLimb = false)
-			{
-				Name = name;
-				Descriptor = descriptor;
-				Blueprint = blueprint;
-				Skill = skill;
-				bEveryLimb = everyLimb;
-			}
-		}
-
 		[NonSerialized]
 		public List<BodyPart> RegisteredParts;
+
 		[NonSerialized]
 		public List<int> RegisteredPartIDs;
 
-		[NonSerialized]
-		private Dictionary<string, HookType> _variants;
-		private Dictionary<string, HookType> Variants
+		public string BlueprintName => Variant.Coalesce("Pedestrian_Hooks");
+
+		[NonSerialized] protected GameObjectBlueprint _Blueprint;
+		public GameObjectBlueprint Blueprint
 		{
 			get
 			{
-				if (_variants == null)
-				{
-					_variants = new Dictionary<string, HookType>
-					{
-						{ "Hooks", new HookType() },
-						{ "Blades", new HookType("Blades for Feet", "sharp blades", "Pedestrian_Blades", "LongBlades") },
-						{ "Mighty Hooves", new HookType("Mighty Hooves", "mighty hooves", "Pedestrian_Hooves", "Cudgel", true) },
-						{ "Cloven Hooves", new HookType("Cloven Hooves", "cloven hooves", "Pedestrian_ClovenHooves", "Cudgel", true) },
-						{ "Clawed Paws", new HookType("Clawed Paws", "clawed paws", "Pedestrian_Paws", "ShortBlades", true) },
-						{ "Bappy Paws", new HookType("Bappy Paws", "bappy paws", "Pedestrian_BappyPaws", "Cudgel", true) },
-						{ "Flippers", new HookType("Flippers", "flippers", "Pedestrian_Flippers", "Cudgel", true) }
-					};
-				}
-				return _variants;
+				_Blueprint ??= GameObjectFactory.Factory.GetBlueprint(BlueprintName);
+				return _Blueprint;
 			}
 		}
 
@@ -86,6 +56,8 @@ namespace XRL.World.Parts.Mutation
 			DisplayName = "Hooks for Feet ({{r|D}})";
 		}
 
+		public override bool UseVariantName => false; // Does not currently respect defect status
+
 		public override bool CanLevel()
 		{
 			return false;
@@ -98,34 +70,24 @@ namespace XRL.World.Parts.Mutation
 
 		public string GetDescriptor()
 		{
-			return Variants[Variant ?? "Hooks"].Descriptor;
-		}
-
-		public string GetBlueprint()
-		{
-			return Variants[Variant ?? "Hooks"].Blueprint;
+			return Blueprint.GetTag("Pedestrian_Descriptor", "sharp hooks");
 		}
 
 		public string GetSkill()
 		{
-			return Variants[Variant ?? "Hooks"].Skill;
+			return Blueprint.GetPartParameter<string>("MeleeWeapon", "Skill", "ShortBlades");
 		}
 
 		public bool IsEveryLimb()
 		{
-			return Variants[Variant ?? "Hooks"].bEveryLimb;
+			return Blueprint.GetTag("Pedestrian_bEveryLimb", "false").EqualsNoCase("true");
 		}
 
-		public override List<string> GetVariants()
+		public override void SetVariant(string Variant)
 		{
-			return Variants.Keys.ToList();
-		}
-
-		public override void SetVariant(int n)
-		{
-			HookType selectedType = Variants.Values.ToList()[n];
-			DisplayName = selectedType.Name + " ({{r|D}})";
-			base.SetVariant(n);
+			base.SetVariant(Variant);
+			DisplayName = GetVariantName().Coalesce("Hooks for Feet") + " ({{r|D}})";
+			_Blueprint = null;
 		}
 
 		public override string GetDescription()
@@ -140,7 +102,7 @@ namespace XRL.World.Parts.Mutation
 
 		public override void OnRegenerateDefaultEquipment(Body Body)
 		{
-			if(RegisteredParts == null)
+			if (RegisteredParts == null)
 			{
 				RegisteredParts = new List<BodyPart>();
 				foreach (BodyPart limb in Body.LoopPart("Feet"))
@@ -179,10 +141,10 @@ namespace XRL.World.Parts.Mutation
 			{
 				//UnityEngine.Debug.Log("Checking " + GetDescriptor() + " on " + bodyPart.GetOrdinalName());
 				var foot = bodyPart.DefaultBehavior;
-				if (!GameObject.validate(ref foot))
+				if (!GameObject.Validate(ref foot))
 				{
 					//UnityEngine.Debug.Log("Regenerating " + GetDescriptor() + " for " + bodyPart.GetOrdinalName());
-					foot = GameObjectFactory.Factory.CreateObject(GetBlueprint());
+					foot = GameObjectFactory.Factory.CreateObject(Blueprint);
 				}
 				else // Nothing needs to be done here.
 				{
