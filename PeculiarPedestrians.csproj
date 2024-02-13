@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net46</TargetFramework>
+		<TargetFramework>net48</TargetFramework>
+		<LangVersion>9.0</LangVersion>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 		<QudLibPath>C:/Program Files (x86)/Steam/steamapps/common/Caves of Qud/CoQ_Data/Managed</QudLibPath>
@@ -20,10 +21,6 @@
 		<Reference Include="$(QudLibPath)/nunit.framework.dll" />
 		<Reference Include="$(QudLibPath)/NVorbis.dll" />
 		<Reference Include="$(QudLibPath)/PlayFab.dll" />
-		<Reference Include="$(QudLibPath)/Rewired_Core.dll" />
-		<Reference Condition="$([MSBuild]::IsOSPlatform('Windows'))" Include="$(QudLibPath)/Rewired_Windows.dll" />
-		<Reference Condition="$([MSBuild]::IsOSPlatform('Linux'))" Include="$(QudLibPath)/Rewired_Linux.dll" />
-		<Reference Condition="$([MSBuild]::IsOSPlatform('Linux'))" Include="$(QudLibPath)/Rewired_OSX.dll" />
 		<Reference Include="$(QudLibPath)/RoslynCSharp.Compiler.dll" />
 		<Reference Include="$(QudLibPath)/RoslynCSharp.dll" />
 		<Reference Include="$(QudLibPath)/RoslynCSharp.Examples.dll" />
@@ -31,9 +28,7 @@
 		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.dll" />
 		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.Mdb.dll" />
 		<Reference Include="$(QudLibPath)/Trivial.Mono.Cecil.Pdb.dll" />
-		<Reference Include="$(QudLibPath)/Unity.Analytics.DataPrivacy.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.AccessibilityModule.dll" />
-		<Reference Include="$(QudLibPath)/UnityEngine.Advertisements.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.AIModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.AndroidJNIModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.AnimationModule.dll" />
@@ -56,7 +51,6 @@
 		<Reference Include="$(QudLibPath)/UnityEngine.InputModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.JSONSerializeModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.LocalizationModule.dll" />
-		<Reference Include="$(QudLibPath)/UnityEngine.Monetization.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.ParticleSystemModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.PerformanceReportingModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.Physics2DModule.dll" />
@@ -79,10 +73,8 @@
 		<Reference Include="$(QudLibPath)/UnityEngine.TLSModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UI.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UIElementsModule.dll" />
-		<Reference Include="$(QudLibPath)/UnityEngine.UIElementsNativeModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UIModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UmbraModule.dll" />
-		<Reference Include="$(QudLibPath)/UnityEngine.UNETModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UnityAnalyticsModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UnityConnectModule.dll" />
 		<Reference Include="$(QudLibPath)/UnityEngine.UnityTestProtocolModule.dll" />
