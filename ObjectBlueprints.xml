@@ -71,6 +71,16 @@
     <tag Name="Pedestrian_Descriptor" Value="flippers" />
     <tag Name="Pedestrian_bEveryLimb" Value="true" />
   </object>
+  <object Name="Pedestrian_Talons" Inherits="Pedestrian_Hooks">
+    <part Name="MeleeWeapon" Slot="Feet" BaseDamage="1" Stat="Strength" Skill="ShortBlades" MaxStrengthBonus="100"/>
+    <part Name="Render" DisplayName="talons" Tile="items/talons.png"/>
+    <part Name="Description" Short="Avian like talons scratching across the surface, ready to render and tear foes."/>
+    <part Name="PedestrianProperties" Bleeds="false"/>
+    
+    <tag Name="VariantName" Value="*delete"/>
+    <tag Name="Pedestrian_Descriptor" Value="talons"/>
+    <tag Name="Pedestrian_bEveryLimb" Value="true"/>
+  </object>
 
   <!-- Ergonomic Shoes -->
   <object Name="ErgonomicMoccasins" Inherits="Leather Moccasins">
